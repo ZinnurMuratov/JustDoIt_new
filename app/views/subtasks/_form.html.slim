@@ -1,0 +1,3 @@
+= form_for([@task, @task.subtasks.build]) do |f|
+  = f.text_field :title, placeholder: "New Todo"
+  = f.submit

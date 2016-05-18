@@ -1,0 +1,34 @@
+=render 'devise/sessions/new'
+=render 'devise/registrations/new'
+.mainpagecontainer
+  .coverfog
+    .top-bar
+      .top-bar-left
+        ul.dropdown.menu data-dropdown-menu=""
+          li
+            .logo
+              img src="assets/icon.png"
+          li
+            = link_to "Just Do It", root_path
+
+      .top-bar-right
+        ul.menu
+          li
+            a href="#" About
+          li
+            a href="#"  Premium
+
+          li
+            - if user_signed_in?
+              button.button
+                = link_to "logout", destroy_user_session_path
+            - else
+              button.button
+                a data-open="log_in"  Log In
+    .textonimage
+      p Don't let your dreams be dreams
+      p Yesterday you said tomorrow
+      p So just do it
+      p your dreams come true
+      .startbutton.button3
+       a data-open="log_in"  Just Do It
