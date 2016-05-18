@@ -21,7 +21,7 @@
           li
             - if user_signed_in?
               button.button
-                = link_to "logout", destroy_user_session_path
+                = link_to "logout", destroy_user_session_path, :method => :delete
             - else
               button.button
                 a data-open="log_in"  Log In

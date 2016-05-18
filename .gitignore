@@ -6,14 +6,12 @@ vendor/cache/
 
 # Ignore all logfiles and tempfiles.
 /log/*
-!/log/.keep
 /tmp
 =======
 *.rbc
 capybara-*.html
 .rspec
 /log
-/tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
@@ -26,6 +24,4 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 config/secrets.yml
 
-## Environment normalization:
-/.bundle
 /vendor/bundle

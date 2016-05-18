@@ -15,7 +15,8 @@ Devise.setup do |config|
 
 
   config.case_insensitive_keys = [:email]
-
+  config.reset_password_keys = [ :username ]
+  config.confirmation_keys = [ :username ]
 
 
 
