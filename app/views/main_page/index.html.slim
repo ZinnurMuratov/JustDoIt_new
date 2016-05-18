@@ -21,7 +21,7 @@
           li
             - if user_signed_in?
               button.button
-                = link_to "logout", destroy_user_session_path, :method => :delete
+                = link_to "Launch", tasks_path
             - else
               button.button
                 a data-open="log_in"  Log In
@@ -31,4 +31,7 @@
       p So just do it
       p your dreams come true
       .startbutton.button3
-       a data-open="log_in"  Just Do It
+        - if user_signed_in?
+          = link_to "Just Do It", tasks_path
+        - else
+          a data-open="log_in" Just Do It

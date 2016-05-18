@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 gem 'slim-rails'
 gem 'foundation-rails'
+gem 'foundation-datetimepicker-rails'
 gem 'devise'
 gem 'simple_form'
 group :development, :test do

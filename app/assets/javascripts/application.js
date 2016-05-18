@@ -16,5 +16,11 @@
 //= require turbolinks
 
 //= require_tree .
+//= require foundation-datetimepicker
 
 $(function(){ $(document).foundation(); });
+$(function(){
+    $('#subtask_due_time').fdatetimepicker({
+        closeButton: true
+    });
+});

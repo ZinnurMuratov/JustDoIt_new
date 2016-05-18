@@ -1,31 +1,9 @@
-.top-bar
-  .top-bar-left
-    ul.dropdown.menu data-dropdown-menu=""
-      li
-        .logo
-          img src="assets/icon.png"
-      li
-        = link_to "Just Do It", root_path
-
-  .top-bar-right
-    ul.menu
-      li
-        a href="#" About
-      li
-        a href="#"  Premium
-
-      li
-        button.button type="button"  Login
-
+=render 'tasks/form'
+=render 'tasks/top_bar'
+#header
+  h2 Tasks
 .container
-  - @tasks.each do |task|
-    .index_row.clearfix
-      h2.todo_list_title= link_to task.title, task
-  .links
-    = link_to "New Todo List", new_task_path
-  a  href="#" data-reveal-id="myModal"  Just Do IT
-
-  #myModal.reveal-modal aria-hidden="true" aria-labelledby="modalTitle" data-reveal="" role="dialog"
-    h2#modalTitle Awesome. I have it.
-    p.lead Your couch.  It is mine.
-    p I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+  .taskcontainer
+    - @tasks.each do |task|
+      .index_row.clearfix data-item = task.id
+        h2.todo_list_title= link_to task.title, task

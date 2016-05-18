@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-
+  before_filter :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.all
   end
 
   def new
@@ -11,14 +11,14 @@ class TasksController < ApplicationController
   end
 
   def show
-
+    @subtasks = @task.subtasks.order(" status ASC,importance DESC, urgency DESC")
   end
 
   def update
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Todo list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -37,14 +37,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Todo list was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+
+    if @task.save
+      respond_to do |format|
+        format.js
       end
+    else
+      render json: { success: false, errors: [@task.errors.messages] }, status: 400
     end
   end
 
@@ -54,9 +53,11 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:user_id,:title, :description)
   end
 
 end

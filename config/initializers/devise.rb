@@ -5,11 +5,10 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
 
-  config.http_authenticatable = false
-  config.skip_session_storage = [:http_auth]
 
   config.http_authenticatable_on_xhr = false
-  config.navigational_formats = [:html, :json]
+
+  config.navigational_formats = ['*/*', :html, :json]
 
   require 'devise/orm/active_record'
 

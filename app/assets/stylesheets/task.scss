@@ -1,12 +1,15 @@
 // Place all the styles related to the task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'settings';
 $white_opaque: rgba(250, 250, 250, .8 );
-$dark: #4E8459;
+$dark: rgba(116, 171, 136, 0.51);
 
 * {
   box-sizing: border-box;
 }
+
+
 html {
   height: 100%;
 }
@@ -21,10 +24,14 @@ html {
   }
 }
 
-#log_in,#sign_up
+.formerrors {
+  color: red;
+}
+
+#log_in,#sign_up,#taskformreveal
 {
   h2{
-    color: #4E8459;
+    color: $white;
   }
 }
 
@@ -33,6 +40,8 @@ html {
   background-image: url("background.jpg");
   background-size: cover;
   height: 100%;
+
+
   background-repeat: no-repeat, no-repeat ;
   background-position: center;
   background-color: #222828;
@@ -93,7 +102,7 @@ html {
 
 body {
   height: 100%;
-  background: #05668D;
+  background: $white_opaque;
   font-family: 'Lato', sans-serif;
 }
 
@@ -115,14 +124,13 @@ body {
 }
 
 .container {
-  width: 50%;
-  max-width: 750px;
-  background: #028090;
-  margin: 3em auto 0 auto;
+  width: 80%;
+  background: $primary-color;
+  margin: 3em auto 3em auto;
   border-radius: 7px;
   -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
   box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-  padding: 1em 0;
+
 }
 
 .todo_list_title {
@@ -130,11 +138,11 @@ body {
   font-weight: 700;
   font-size: 2.5rem;
   text-transform: uppercase;
-  color: #F0F3BD;
+  color: $white;
   margin: 0;
   a {
     text-decoration: none;
-    color: #F0F3BD;
+    color: $white;
     transition: all .4s ease-in-out;
     &:hover {
       opacity: 0.4;
@@ -146,8 +154,8 @@ body {
   margin: 0 0 3em 0;
   text-align: center;
   font-size: 0.9em;
-  color: $white_opaque;
-  font-weight: 100;
+  color: $white;
+  font-weight: 300;
 }
 
 .index_row {
@@ -250,8 +258,7 @@ input[type="text"], textarea {
   width: 100%;
   margin: .5em 2% 1em 0;
   display: inline-block;
-  outline: none;
-  background: rgba(250,250,250,.4);
+  outline: none;;
   border: none;
   height: 40px;
   border-radius: 4px;
@@ -259,6 +266,17 @@ input[type="text"], textarea {
 }
 textarea {
   height: 200px;
+
+}
+#header{
+  h2{
+    text-align: center;
+    margin-top: 2em;
+  }
+}
+#task_title{
+  height: 10px;
+  overflow-y: hidden;
 }
 input[type="submit"] {
   background: white;
@@ -270,7 +288,7 @@ input[type="submit"] {
   display: inline-block;
   transition: all .4s ease-in-out;
   cursor: pointer;
-  color: $dark;
+  color: $black;
   &:hover {
     background: $dark;
     color: white;

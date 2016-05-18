@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root 'main_page#index'
   get '/about', to: 'main_page#about'
 
+
+
+  post '/tasks', :to => 'tasks#create', :as => 'task_create'
   resources :tasks do
     resources :subtasks do
       member do

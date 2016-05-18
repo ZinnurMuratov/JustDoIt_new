@@ -1,12 +1,14 @@
-p#notice= notice
-h2.todo_list_title= @task.title
-p.todo_list_sub_title= @task.description
-#todo_items_wrapper
-  = render @task.subtasks
-  #form
-    = render "subtasks/form"
-.links
-  = link_to 'Edit', edit_task_path(@task)
+=render 'subtasks/top_bar'
+.container
+  p#notice= notice
+  h2.todo_list_title= @task.title
+  p.todo_list_sub_title= @task.description
+  #todo_items_wrapper
+    = render @subtasks
+    #form
+      = render "subtasks/form"
+  .links
+    = link_to 'Edit', edit_task_path(@task)
 
-  = link_to 'Delete', task_path(@task), method: :delete, data: { confirm: "Are you sure?" }
-  = link_to 'Back', task_path
+    = link_to 'Delete', task_path(@task), method: :delete, data: { confirm: "Are you sure?" }
+    = link_to 'Back', task_path

@@ -1,4 +1,5 @@
 class SubtasksController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_task
   before_action :set_subtask, except: [:create]
 
@@ -18,6 +19,7 @@ class SubtasksController < ApplicationController
 
   def complete
     @subtask.update_attribute(:completed_at, Time.now)
+    @subtask.update_attribute(:status, true)
     redirect_to @task, notice: "Todo item completed"
   end
 
@@ -32,6 +34,6 @@ class SubtasksController < ApplicationController
   end
 
   def subtask_params
-    params[:subtask].permit(:title)
+    params[:subtask].permit(:title,:importance,:urgency,:due_time,:status)
   end
 end

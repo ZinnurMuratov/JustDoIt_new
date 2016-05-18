@@ -1,0 +1,23 @@
+div data-sticky-container=""
+  .title-bar data-options="marginTop:0.1;" data-sticky="" style="width:100%" data-top-anchor="1"
+    .title-bar-left
+      ul.menu
+        li
+          .logo
+            img src="../assets/icon.png"
+        li
+          = link_to "Tasks", tasks_path
+        li
+          button.button
+            a data-open="subtaskformreveal" Create new item
+
+    .title-bar-right
+      ul.menu
+        li
+          a href="#" About
+        li
+          a href="#"  Premium
+
+        li
+          button.button
+            = link_to "Log Out", destroy_user_session_path, :method => :delete

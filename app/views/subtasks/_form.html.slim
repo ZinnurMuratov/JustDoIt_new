@@ -1,3 +1,11 @@
-= form_for([@task, @task.subtasks.build]) do |f|
-  = f.text_field :title, placeholder: "New Todo"
-  = f.submit
+#subtaskformreveal.reveal data-reveal=""
+  h2 New Task
+  .formerrors
+  br
+  = simple_form_for([@task, @task.subtasks.build]) do |f|
+    = f.input :title, placeholder: "New Todo"
+    = f.input :importance, as: :boolean
+    = f.input :urgency, as: :boolean
+    = f.text_field :due_time
+    = f.input :status, :as => :hidden, :input_html => { :value => false }
+    = f.submit
