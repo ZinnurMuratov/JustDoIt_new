@@ -18,7 +18,7 @@ Devise.setup do |config|
   config.confirmation_keys = [ :username ]
 
 
-
+  config.secret_key = 'dbc8e39c66837017a717b8587f5e4139de6136c6fbd13e42197d8667d2663221f10ff579685ab32406f6254a68173c2f60a7cc40c4300ece16a0deeaf9a4cb52'
   config.stretches = Rails.env.test? ? 1 : 11
 
 
