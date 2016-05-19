@@ -29,7 +29,6 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.serve_static_files  = true
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
   config.cache_classes = true
   config.assets.digest = true
