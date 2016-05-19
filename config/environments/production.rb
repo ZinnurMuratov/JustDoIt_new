@@ -33,7 +33,6 @@ Rails.application.configure do
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
   config.cache_classes = true
-  config.serve_static_assets = true
   config.assets.digest = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
