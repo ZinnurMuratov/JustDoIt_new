@@ -6,4 +6,5 @@
   .taskcontainer
     - @tasks.each do |task|
       .index_row.clearfix data-item = task.id
-        h2.todo_list_title= link_to task.title, task
+        h2.todo_list_title= link_to(task.title, task, data: { no_turbolink: true })
+

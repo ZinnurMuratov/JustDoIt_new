@@ -3,9 +3,10 @@
   .formerrors
   br
   = simple_form_for([@task, @task.subtasks.build]) do |f|
-    = f.input :title, placeholder: "New Todo"
+    = f.input :title, placeholder: "New Todo", required: true
     = f.input :importance, as: :boolean
     = f.input :urgency, as: :boolean
+    p Due time
     = f.text_field :due_time
     = f.input :status, :as => :hidden, :input_html => { :value => false }
     = f.submit

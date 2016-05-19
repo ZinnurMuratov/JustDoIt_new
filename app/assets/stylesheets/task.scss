@@ -28,9 +28,12 @@ html {
   color: red;
 }
 
-#log_in,#sign_up,#taskformreveal
+#log_in,#sign_up,#taskformreveal,#subtaskformreveal
 {
   h2{
+    color: $white;
+  }
+  p{
     color: $white;
   }
 }
@@ -181,13 +184,35 @@ body {
     .todo_item {
       width: 80%;
       float: left;
+      position: relative;
       p {
         margin: 0;
         padding: 1em;
         color: #FFFFFF;
-        font-weight: 100;
+        font-weight: 300;
+      }
+      #important
+      {
+        position: absolute;
+        right: 2px  ;
+        top: 15px;
+        img{
+          width: 30px;
+          height: 30px  ;
+        }
+      }
+      #urgency
+      {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        img{
+          width: 30px;
+          height: 30px  ;
+        }
       }
     }
+
     .trash {
       width: 10%;
       float: left;
@@ -268,6 +293,7 @@ textarea {
   height: 200px;
 
 }
+
 #header{
   h2{
     text-align: center;

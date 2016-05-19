@@ -1,5 +1,5 @@
 #taskformreveal.reveal data-reveal=""
-  h2 New Task
+  h2 New Item
   .formerrors
   br
   = simple_form_for(newtask, as: taskname,html: {:id => "taskform"}, remote: true, url: task_create_path(taskname)) do |f|

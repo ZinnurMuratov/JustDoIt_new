@@ -6,7 +6,7 @@ div data-sticky-container=""
           .logo
             img src="../assets/icon.png"
         li
-          = link_to "Tasks", tasks_path
+          = link_to('Tasks', tasks_path, data: { no_turbolink: true })
         li
           button.button
             a data-open="subtaskformreveal" Create new item

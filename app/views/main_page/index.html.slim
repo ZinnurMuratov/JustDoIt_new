@@ -21,7 +21,7 @@
           li
             - if user_signed_in?
               button.button
-                = link_to "Launch", tasks_path
+                = link_to("Launch", tasks_path, data: { no_turbolink: true })
             - else
               button.button
                 a data-open="log_in"  Log In
@@ -32,6 +32,6 @@
       p your dreams come true
       .startbutton.button3
         - if user_signed_in?
-          = link_to "Just Do It", tasks_path
+          = link_to("Just Do It", tasks_path, data: { no_turbolink: true })
         - else
           a data-open="log_in" Just Do It

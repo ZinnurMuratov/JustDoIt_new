@@ -7,6 +7,7 @@
     .todo_item
       p style=("opacity: 0.4;")
         strike= subtask.title
+
     .trash
       = link_to task_subtask_path(@task, subtask.id), method: :delete, data: { confirm: "Are you sure?" } do
         i.fa.fa-trash
@@ -16,6 +17,19 @@
         i.fa.fa-check
     .todo_item
       p= subtask.title
+      - if subtask.importance && !subtask.urgency
+        #important
+          img src="../assets/importance.png" title="Importance"
+      - if subtask.urgency && !subtask.importance
+        #important
+          img src="../assets/quickly.png" title="Urgency"
+      - if subtask.urgency && subtask.importance
+        #urgency
+          img src="../assets/quickly.png" title="Urgency"
+        #important
+          img src="../assets/importance.png" title="Importance"
+
+
     .trash
       = link_to task_subtask_path(@task, subtask.id), method: :delete, data: { confirm: "Are you sure?" } do
         i.fa.fa-trash
